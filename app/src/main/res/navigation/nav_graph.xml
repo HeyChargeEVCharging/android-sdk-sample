@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/loginFragment">
+    <fragment
+        android:id="@+id/loginFragment"
+        android:name="com.heycharge.sdk.sample.app.LoginFragment"
+        android:label="Login"
+        tools:layout="@layout/fragment_login">
+        <action
+            android:id="@+id/action_loginFragment_to_homeFragment"
+            app:destination="@id/homeFragment">
+            <argument
+                android:name="userId"
+                android:defaultValue=""
+                app:argType="string" />
+        </action>
+    </fragment>
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name="com.heycharge.sdk.sample.app.HomeFragment"
+        android:label="Home"
+        tools:layout="@layout/fragment_home">
+        <argument
+            android:name="userId"
+            android:defaultValue=""
+            app:argType="string" />
+        <action
+            android:id="@+id/action_homeFragment_to_otaDialog"
+            app:destination="@+id/otaDialog">
+            <argument
+                android:name="chargerJson"
+                android:defaultValue=""
+                app:argType="string" />
+        </action>
+    </fragment>
+    <dialog
+        android:id="@+id/otaDialog"
+        android:name="com.heycharge.sdk.sample.app.admin.OTADialog"
+        android:label="OTA"
+        tools:layout="@layout/dialog_ota">
+        <argument
+            android:name="chargerJson"
+            android:defaultValue=""
+            app:argType="string" />
+    </dialog>
+</navigation>
