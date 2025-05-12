@@ -5,13 +5,11 @@ import com.heycharge.androidsdk.core.HeyChargeSDK
 
 class HeyChargeApp : Application() {
 
-    //    dev
-    private val testSdkKey = "KTrCsT64MbSBECjDejVNVKgu35n9t99G"
-    //prod
-//    private val testSdkKey = "399zzFUHpP6E6IWGcbbnR4st"
+    private lateinit var sdkKey: String
 
     override fun onCreate() {
         super.onCreate()
-        HeyChargeSDK.initialize(applicationContext, testSdkKey)
+        sdkKey = "Insert you sdk key here"
+        HeyChargeSDK.initialize(applicationContext, sdkKey)
     }
 }
